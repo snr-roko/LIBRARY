@@ -27,7 +27,14 @@ header h1{
 
 main{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+}
+
+.card-container{
+  background-color: #D9D9D9CC;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 button{
