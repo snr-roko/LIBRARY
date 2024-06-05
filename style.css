@@ -15,6 +15,9 @@ body {
 header{
   background-color: #D9D9D9A6;
   background-size: cover;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header h1{
@@ -28,25 +31,34 @@ header h1{
 main{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  padding: 20px;
+  align-items: flex-start;
+  gap: 30px;
 }
 
 .card-container{
   background-color: #D9D9D9CC;
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: 20px;
 }
 
+.card-container div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 button{
-  background-color: #D9D9D9CC;
+  background-color: #fff;
   text-transform: capitalize;
-  text-align: center;
-  padding: 30px;
+  padding: 20px;
   border: none;
   border-radius: 50px;
   font-size: 20px;
   font-weight: 700;
   cursor: pointer;
+  text-align: center;
+  margin-right: 50px;
 }
 
 button:hover {

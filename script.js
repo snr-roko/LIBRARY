@@ -6,7 +6,33 @@ const myLibrary = [
     author: 'JK Rowling',
     pages: 450,
     read: 'Yes'
+  },
+  {
+    name: 'The Hobbit',
+    author: 'JK Rowling',
+    pages: 450,
+    read: 'Yes'
   }
+  ,  {
+    name: 'The Hobbit',
+    author: 'JK Rowling',
+    pages: 450,
+    read: 'Yes'
+  }
+  ,
+  {
+    name: 'The Hobbit',
+    author: 'JK Rowling',
+    pages: 450,
+    read: 'Yes'
+  },
+  {
+    name: 'The Hobbit',
+    author: 'JK Rowling',
+    pages: 450,
+    read: 'Yes'
+  }
+
 ];
 
 function Book(name, author, pages, read) {
