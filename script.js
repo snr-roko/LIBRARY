@@ -1,31 +1,9 @@
 const main_page = document.getElementsByTagName('main')[0];
-const new_book = document.querySelector('#new')
+const new_book = document.querySelector('#new');
+const dialog_form = document.querySelector('dialog');
+const close_dialog = document.querySelector('#close-dialog');
+const form = document.querySelector('form');
 const myLibrary = [
-  {
-    name: 'The Hobbit',
-    author: 'JK Rowling',
-    pages: 450,
-    read: 'Yes'
-  },
-  {
-    name: 'The Hobbit',
-    author: 'JK Rowling',
-    pages: 450,
-    read: 'Yes'
-  }
-  ,  {
-    name: 'The Hobbit',
-    author: 'JK Rowling',
-    pages: 450,
-    read: 'Yes'
-  }
-  ,
-  {
-    name: 'The Hobbit',
-    author: 'JK Rowling',
-    pages: 450,
-    read: 'Yes'
-  },
   {
     name: 'The Hobbit',
     author: 'JK Rowling',
@@ -35,14 +13,30 @@ const myLibrary = [
 
 ];
 
-function Book(name, author, pages, read) {
-  // the constructor...
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.read = read.toLowerCase() === 'yes' ? 'Read' : 'Not Read yet';
-  this.info = () => `${this.name} by ${this.author}, ${this.pages}, ${this.read}`;
-}
+new_book.addEventListener('click', () => {
+  dialog_form.showModal();
+})
+
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if(form.checkValidity()) {
+    dialog_form.close();
+  } else {
+    form.reportValidity();
+  }
+})
+
+// function Book(name, author, pages, read) {
+//   // the constructor...
+//   this.name = name;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read.toLowerCase() === 'yes' ? 'Read' : 'Not Read yet';
+//   this.info = () => `${this.name} by ${this.author}, ${this.pages}, ${this.read}`;
+// }
+
+
 
 function addBookToLibrary() {
   // check whether main is empty
