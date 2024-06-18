@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Page</title>
+  <title>Library</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <h1>the book library</h1>
     <button id="new" class="new">new book</button>
-  </header>
-  <main>
     <dialog>
       <form action="" method="dialog">
         <div class="form-row">
@@ -51,10 +49,16 @@
           <label for="book-pages">Pages</label>
           <input type="number" id="book-pages" name="pages" required>
         </div>
+        <div class="form-row">
+          <label for="book-rating">Rating(0-5)</label>
+          <input type="number" name="rating" id="book-rating" required min="0" max="5">
+        </div>
         <button id="close-dialog" type="submit">Submit</button>
 
       </form>
     </dialog>
+  </header>
+  <main>
   </main>
   <footer>snr-roko@2024</footer>
   <script src="script.js"></script>
