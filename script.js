@@ -43,10 +43,6 @@ function Book(name, author, pages, ratings) {
 function addBookToLibrary() {
   // resetting the main page
   main_page.innerHTML = '';
-  // check whether main is empty
-  if(myLibrary.length !== 0) {
-    
-  }
   // displaying each book
   myLibrary.forEach((book) => {
     let card = document.createElement('div');
@@ -96,25 +92,48 @@ function addBookToLibrary() {
   // book read line
   let book_read_state = document.createElement('p');
   book_read_state.textContent = 'Read:';
-  let read_toggle_off_button = document.createElement('button');
-  read_toggle_off_button.style.background = 'inherit';
-  read_toggle_off_button.style.border = "none";
-  read_toggle_off_button.style.cursor = "pointer";
+  let read_toggle_button = document.createElement('button');
+  read_toggle_button.style.background = 'inherit';
+  read_toggle_button.style.border = "none";
+  read_toggle_button.style.cursor = "pointer";
+  read_toggle_button.classList.add('off');
   let read_toggle_off = createSVGIcon("M280-240q-100 0-170-70T40-480q0-100 70-170t170-70h400q100 0 170 70t70 170q0 100-70 170t-170 70H280Zm0-80h400q66 0 113-47t47-113q0-66-47-113t-113-47H280q-66 0-113 47t-47 113q0 66 47 113t113 47Zm0-40q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm200-120Z");
-  read_toggle_off_button.appendChild(read_toggle_off);
+  read_toggle_button.appendChild(read_toggle_off);
   book_read.appendChild(book_read_state);
-  book_read.appendChild(read_toggle_off_button);
+  book_read.appendChild(read_toggle_button);
+
+// Toggles the read svg icon to off and on
+let read_toggle_on;
+  read_toggle_button.addEventListener('click', () => {
+    if(read_toggle_button.classList.contains('off')) {
+      read_toggle_button.classList.remove('off');
+      read_toggle_button.classList.add('on');
+      read_toggle_button.removeChild(read_toggle_off);
+      read_toggle_on = createSVGIcon("M280-240q-100 0-170-70T40-480q0-100 70-170t170-70h400q100 0 170 70t70 170q0 100-70 170t-170 70H280Zm0-80h400q66 0 113-47t47-113q0-66-47-113t-113-47H280q-66 0-113 47t-47 113q0 66 47 113t113 47Zm400-40q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM480-480Z");
+      read_toggle_on.style.fill = "yellow";
+      read_toggle_button.appendChild(read_toggle_on);      
+        } else {
+          read_toggle_button.classList.remove('on');
+          read_toggle_button.classList.add('off');
+          read_toggle_button.removeChild(read_toggle_on);
+          read_toggle_button.appendChild(read_toggle_off);    
+          }    
+  })
 
   // book delete line
   let book_delete_button = document.createElement('button');
   let book_delete_icon = createSVGIcon("M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z");
+  book_delete_icon.style.fill = 'red';
   book_delete_button.style.background = 'inherit';
   book_delete_button.style.border = "none";
   book_delete_button.style.cursor = "pointer";  
   book_delete_button.appendChild(book_delete_icon);
   book_delete.appendChild(book_delete_button);
 
-
+ // Deleting card when delete button is clicked
+ book_delete_button.addEventListener('click', () => {
+  main_page.removeChild(card);
+})
 
   // Displaying the card on the page
   card.appendChild(book_name);
@@ -125,6 +144,8 @@ function addBookToLibrary() {
   card.appendChild(book_delete);
   main_page.appendChild(card);
  })
+
+
 }
 
 // Creating an svg Icon
@@ -146,6 +167,7 @@ function createSVGIcon(path_data) {
   return svg;
 
 }
+
 
 
 
