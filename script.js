@@ -28,17 +28,16 @@ form.addEventListener('submit', (event) => {
     form.reportValidity();
   }
 })
-
-function Book(name, author, pages, ratings) {
-  // the constructor...
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.rating = ratings;
-
+ 
+// Book Class
+class Book {
+  constructor(name, author, pages, ratings) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.rating = ratings;
+  }
 }
-
-
 
 function addBookToLibrary() {
   // resetting the main page
